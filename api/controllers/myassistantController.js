@@ -2,7 +2,7 @@
 var users = [];
 exports.createEmployee = function(req, res){
     // response = "This is a sample response from your webhook!";
-    users.push(req.body.user.name);
+    users.push(req.data);
     if(users.length>0){
       res.send(JSON.stringify({ "speech": "User has been added successfully",
                                 "displayText": "User has been added successfully"
