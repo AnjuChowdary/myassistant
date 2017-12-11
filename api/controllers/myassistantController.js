@@ -3,10 +3,10 @@ var users = [];
 exports.createEmployee = function(req, res){
     // response = "This is a sample response from your webhook!";
     users.push(req.body.result.parameters['employeename']);
-    // const app = require('actions-on-google').DialogflowApp;
-    const app = new DialogflowApp({req, res});
+    const app = require('actions-on-google').DialogflowApp;
+    // const app = new DialogflowApp({req, res});
     console.log(app);
-    let hasScreen = app.hasSurfaceCapability(app.SurfaceCapabilities.SCREEN_OUTPUT);
+    const hasScreen = app.hasSurfaceCapability(app.SurfaceCapabilities.SCREEN_OUTPUT);
 
     if(users.length>0){
       // String us = users[0];
