@@ -3,6 +3,7 @@ var users = [];
 exports.createEmployee = function(req, res){
     // response = "This is a sample response from your webhook!";
     users.push(req.body.result.parameters['employeename']);
+    const app = require('actions-on-google').myassistant;
     let hasScreen =
     app.hasSurfaceCapability(app.SurfaceCapabilities.SCREEN_OUTPUT);
 
@@ -19,7 +20,6 @@ exports.createEmployee = function(req, res){
   }));
     // const app = new ActionsSdkApp({req, res});
     function basicCard () {
-      const app = require('actions-on-google').myassistant;
       app.ask(app.buildRichResponse()
         // Create a basic card and add it to the rich response
         .addSimpleResponse('New Employee Registration')
