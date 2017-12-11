@@ -10,7 +10,7 @@ exports.createEmployee = function(req, res){
     //                             "displayText": "User "+ users[0] + " has been added successfully"
     // //"speech" is the spoken version of the response, "displayText" is the visual version
     // }));
-    const app = new ActionsSdkApp({req, res});
+    // const app = new ActionsSdkApp({req, res});
     app.ask(app.buildRichResponse()
       // Create a basic card and add it to the rich response
       .addSimpleResponse('Math and prime numbers it is!')
