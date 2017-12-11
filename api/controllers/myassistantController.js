@@ -2,7 +2,7 @@
 var users = [];
 exports.createEmployee = function(req, res){
     // response = "This is a sample response from your webhook!";
-    users.push(req.data);
+    users.push(req.body.result.parameters['employeename']);
     if(users.length>0){
       // String us = users[0];
       var usersLength = users.length;
