@@ -5,7 +5,8 @@ exports.createEmployee = function(req, res){
     users.push(req.data);
     if(users.length>0){
       var us = users[0];
-      res.send(JSON.stringify({ "speech": "User"+ us + "has been added successfully",
+      var usersLength = users.length;
+      res.send(JSON.stringify({ "speech": usersLength + "Users has been added successfully",
                                 "displayText": "User"+ us + "has been added successfully"
     //"speech" is the spoken version of the response, "displayText" is the visual version
     }));
