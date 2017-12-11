@@ -11,16 +11,12 @@ exports.createEmployee = function(req, res){
     // //"speech" is the spoken version of the response, "displayText" is the visual version
     // }));
     // const app = new ActionsSdkApp({req, res});
-    const app = require('actions-on-google').myassistant
+    const app = require('actions-on-google').myassistant;
     app.ask(app.buildRichResponse()
       // Create a basic card and add it to the rich response
-      .addSimpleResponse('Math and prime numbers it is!')
-      .addBasicCard(app.buildBasicCard('42 is an even composite number. It' +
-        'is composed of three distinct prime numbers multiplied together. It' +
-        'has a total of eight divisors. 42 is an abundant number, because the' +
-        'sum of its proper divisors 54 is greater than itself. To count from' +
-        '1 to 42 would take you about twenty-one…')
-        .setTitle('Math & prime numbers')
+      .addSimpleResponse('New Employee Registration')
+      .addBasicCard(app.buildBasicCard('Employee Created Successfully.')
+        .setTitle('New Employee')
         .addButton('Read more', 'https://example.google.com/mathandprimes')
         .setImage('https://example.google.com/42.png', 'Image alternate text')
         .setImageDisplay('CROPPED')
