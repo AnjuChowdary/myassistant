@@ -95,7 +95,7 @@ exports.createEmployee = function(req, res){
     function detailsIntent (app) {
       console.log("detailsIntent invoked.");
       console.log("name value: "+name);
-        if(name == "anju"){
+        if(name == "anju" || name == "Sri Anju"){
           app.ask('Employee id of Anju is 1897.');
         }else if(name == "Chaitanya"){
           app.ask('Employee id of Chaitanya is 1898.');
