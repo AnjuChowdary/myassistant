@@ -13,7 +13,7 @@ exports.createEmployee = function(req, res){
     const hasScreen = app.hasSurfaceCapability(app.SurfaceCapabilities.SCREEN_OUTPUT);
     console.log("hasScreenOutput"+hasScreen);
     if(hasScreen){
-      function basicCard () {
+      // function basicCard () {
         console.log("basicCard Creation");
         app.ask(app.buildRichResponse()
           // Create a basic card and add it to the rich response
@@ -26,7 +26,7 @@ exports.createEmployee = function(req, res){
           )
         );
         console.log("Card Created");
-    }
+    // }
     console.log("Basic card created successfully");
   }else{
     if(users.length>0){
