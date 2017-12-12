@@ -62,7 +62,7 @@ exports.createEmployee = function(req, res){
         function welcomeIntent (app) {
           console.log("Welcome Intent invoked.");
             app.ask('Welcome to Vsoft! How may I help you?.',
-                      ['Say any name', 'Pick a number', 'We can stop here. See you soon.']);
+                      ['Say any name', 'Pick a number', 'We can stop here. See you soon.');
         }
 
         const actionMap = new Map();
