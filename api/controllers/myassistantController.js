@@ -72,20 +72,23 @@ exports.createEmployee = function(req, res){
     }else if(req.body.result['action'] == "intent.details"){
       detailsEmp(req.body.result.parameters['employeename']);
     }else if(req.body.result['action'] == "intent.branches"){
-      branches();
+      res.send(JSON.stringify({ "speech": "The branches of vsoft are Madhapur main branch and Kukatpally branch",
+                                "displayText": "The branches of vsoft are Madhapur main branch and Kukatpally branch"
+    }));
+      // branches();
     }
 
-  function branches(){
-    console.log("branches invoked.");
-    function branchIntent (app) {
-      console.log("Welcome Intent invoked.");
-        app.ask('The branches of vsoft are Madhapur main branch and Kukatpally branch');
-    }
-
-    const actionMap = new Map();
-    actionMap.set("intent.details", branchIntent);
-    app.handleRequest(actionMap);
-  }
+  // function branches(){
+  //   console.log("branches invoked.");
+  //   function branchIntent (app) {
+  //     console.log("Welcome Intent invoked.");
+  //       app.ask('The branches of vsoft are Madhapur main branch and Kukatpally branch');
+  //   }
+  //
+  //   const actionMap = new Map();
+  //   actionMap.set("intent.details", branchIntent);
+  //   app.handleRequest(actionMap);
+  // }
 
   function detailsEmp(name){
     console.log("detailsEmp invoked.");
