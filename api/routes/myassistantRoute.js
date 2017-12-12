@@ -3,6 +3,6 @@ module.exports = function(app){
   var empList = require('../controllers/myassistantController');
 
   //empList Routes
-  app.route('/employee')
+  app.route('/createEmployee')
     .post(empList.createEmployee)
 }
