@@ -62,7 +62,7 @@ exports.createEmployee = function(req, res){
         function welcomeIntent (app) {
           console.log("Welcome Intent invoked.");
             app.ask('Welcome to Vsoft! How may I help you?.',
-                      ['Say any name', 'Pick a number', 'We can stop here. See you soon.');
+                      ['Say any name', 'Pick a number', 'We can stop here. See you soon.']);
         }
 
         const actionMap = new Map();
@@ -73,7 +73,7 @@ exports.createEmployee = function(req, res){
 
       function detailsIntent (app) {
         console.log("detailsIntent invoked.");
-          app.ask('Sorry!! Details are not available.']);
+          app.ask('Sorry!! Details are not available.');
       }
 
       const actionMap = new Map();
