@@ -9,7 +9,7 @@ exports.createEmployee = function(req, res){
     const app = new DialogflowApp({request: req, response: res});
 
     console.log(req.body.result['action']);
-    console.log(req.body.result['action'] == "createemployee");
+    console.log(req.body.result['action'] == "intent.createEmployee");
 
     // console.log(app);
     console.log("users[] length: "+users.length);
@@ -67,8 +67,24 @@ exports.createEmployee = function(req, res){
       }));
       }
     }
-    }else{
-      console.log("No matching action found");
+  }else if(req.body.result['action'] == "intent.welcome"){
+    function welcomeIntent (app) {
+        app.ask('Welcome to Vsoft! Say a name.',
+                  ['Say any name', 'Pick a number', 'We can stop here. See you soon.']);
     }
+
+    function createIntent (app) {
+      const number = app.getArgument(NUMBER_ARGUMENT);
+      app.tell('You said ' + number);
+    }
+
+    const actionMap = new Map();
+    actionMap.set("intent.welcome", welcomeIntent);
+    actionMap.set("intent.createEmployee", createIntent);
+    app.handleRequest(actionMap);
+
+  }else{
+    console.log("No matching action found");
+  }
 
 };
