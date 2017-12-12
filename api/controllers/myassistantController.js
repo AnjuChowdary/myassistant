@@ -8,8 +8,8 @@ exports.createEmployee = function(req, res){
     const { DialogflowApp } = require('actions-on-google');
     const app = new DialogflowApp({request: req, response: res});
 
-    // const app = new DialogflowApp({req, res});
-    console.log(app);
+    // console.log(app);
+    console.log("Users[0]: "+users[0]);
     const hasScreen = app.hasSurfaceCapability(app.SurfaceCapabilities.SCREEN_OUTPUT);
     console.log("hasScreenOutput"+hasScreen);
     if(hasScreen){
