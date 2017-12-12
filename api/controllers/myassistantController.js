@@ -5,7 +5,7 @@ exports.createEmployee = function(req, res){
     users.push(req.body.result.parameters['employeename']);
     // const app = require('actions-on-google').my-assistant-783d0;
 
-    const  DialogflowApp  = require('actions-on-google');
+    const {DialogflowApp} = require('actions-on-google');
     const app = new DialogflowApp({request: req, response: res});
 
     // console.log(app);
