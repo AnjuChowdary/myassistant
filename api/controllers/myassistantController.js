@@ -3,19 +3,20 @@ var users = [];
 exports.createEmployee = function(req, res){
 
     // response = "This is a sample response from your webhook!";
-    users.push(req.body.result.parameters['employeename']);
     const { DialogflowApp } = require('actions-on-google');
     const app = new DialogflowApp({request: req, response: res});
 
     console.log(req.body.result['action']);
 
     // console.log(app);
-    console.log("users[] length: "+users.length);
-    for(var i = 0;i<users.length;i++){
-      console.log("User "+i+" "+users[i]);
-    }
+
 
     if(req.body.result['action'] == "intent.createEmployee") {
+      users.push(req.body.result.parameters['employeename']);
+      console.log("users[] length: "+users.length);
+      for(var i = 0;i<users.length;i++){
+        console.log("User "+i+" "+users[i]);
+      }
       const hasScreen = app.hasSurfaceCapability(app.SurfaceCapabilities.SCREEN_OUTPUT);
       console.log("hasScreenOutput: "+hasScreen);
       if(hasScreen){
@@ -33,6 +34,16 @@ exports.createEmployee = function(req, res){
           );
           console.log("Card Created");
           console.log("Basic card created successfully");
+
+          function createIntent (app) {
+            console.log("createIntent invoked.");
+            const name = app.getArgument("intent.createEmployee");
+            app.tell('You said ' + name+". Created successfully.");
+          }
+
+          const actionMap = new Map();
+          actionMap.set("intent.createEmployee", createIntent);
+          app.handleRequest(actionMap);
       }else{
           if(users.length>0){
 
@@ -54,15 +65,8 @@ exports.createEmployee = function(req, res){
                       ['Say any name', 'Pick a number', 'We can stop here. See you soon.']);
         }
 
-        function createIntent (app) {
-          console.log("createIntent invoked.");
-          const name = app.getArgument("intent.createEmployee");
-          app.tell('You said ' + name);
-        }
-
         const actionMap = new Map();
         actionMap.set("intent.welcome", welcomeIntent);
-        actionMap.set("intent.createEmployee", createIntent);
         app.handleRequest(actionMap);
 
     }else{
