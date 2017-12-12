@@ -14,7 +14,7 @@ exports.createEmployee = function(req, res){
 
     if(req.body.result['action'] == "intent.createEmployee") {
 
-      users.push();
+      users.push(req.body.result.parameters['employeename']);
       console.log("users[] length: "+users.length);
       for(var i = 0;i<users.length;i++){
         console.log("User "+i+" "+users[i]);
