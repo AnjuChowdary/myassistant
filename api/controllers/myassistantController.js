@@ -1,15 +1,13 @@
 'use strict';
 var users = [];
 exports.createEmployee = function(req, res){
+
     // response = "This is a sample response from your webhook!";
     users.push(req.body.result.parameters['employeename']);
-    // const app = require('actions-on-google').my-assistant-783d0;
-
     const { DialogflowApp } = require('actions-on-google');
     const app = new DialogflowApp({request: req, response: res});
 
     console.log(req.body.result['action']);
-    console.log(req.body.result['action'] == "intent.createEmployee");
 
     // console.log(app);
     console.log("users[] length: "+users.length);
@@ -19,7 +17,7 @@ exports.createEmployee = function(req, res){
 
     if(req.body.result['action'] == "intent.createEmployee") {
       const hasScreen = app.hasSurfaceCapability(app.SurfaceCapabilities.SCREEN_OUTPUT);
-      console.log("hasScreenOutput"+hasScreen);
+      console.log("hasScreenOutput: "+hasScreen);
       if(hasScreen){
 
           console.log("basicCard Creation");
@@ -33,58 +31,42 @@ exports.createEmployee = function(req, res){
               .setImageDisplay('CROPPED')
             )
           );
-
-        //   let actionMap = new Map();
-        //   actionMap.set(app.StandardIntents.TEXT, "createEmployee");
-        //   actionMap.set(app.StandardIntents.TEXT, "employeeDetails");
-        //
-        // app.handleRequest(actionMap);
           console.log("Card Created");
-
-      console.log("Basic card created successfully");
-    }else{
-      if(users.length>0){
-
-          res.send(JSON.stringify({ "speech": "User " + users[0] + " has been added successfully",
-                                    "displayText": "User "+ users[0] + " has been added successfully",
-                                    "possibleIntents": [
-                                        {
-                                            "intent": "employeeDetails"
-                                        }
-                                      ]
-        //"speech" is the spoken version of the response, "displayText" is the visual version
-        }));
-
+          console.log("Basic card created successfully");
       }else{
-        res.send(JSON.stringify({ "speech": "This is a sample response from your webhook!",
-                                  "displayText": "This is a sample response from your webhook!",
-                                  "possibleIntents": [
-                                      {
-                                          "intent": "employeeDetails"
-                                      }
-                                    ]
-      //"speech" is the spoken version of the response, "displayText" is the visual version
-      }));
+          if(users.length>0){
+
+              res.send(JSON.stringify({ "speech": "User " + users[0] + " has been added successfully",
+                                        "displayText": "User "+ users[0] + " has been added successfully"
+            }));
+
+          }else{
+            res.send(JSON.stringify({ "speech": "This is a sample response from your webhook!",
+                                      "displayText": "This is a sample response from your webhook!"
+          }));
+          }
       }
-    }
-  }else if(req.body.result['action'] == "intent.welcome"){
-    function welcomeIntent (app) {
-        app.ask('Welcome to Vsoft! Say a name.',
-                  ['Say any name', 'Pick a number', 'We can stop here. See you soon.']);
-    }
+    }else if(req.body.result['action'] == "intent.welcome"){
 
-    function createIntent (app) {
-      const number = app.getArgument(NUMBER_ARGUMENT);
-      app.tell('You said ' + number);
-    }
+        function welcomeIntent (app) {
+          console.log("Welcome Intent invoked.");
+            app.ask('Welcome to Vsoft! How may I help you?.',
+                      ['Say any name', 'Pick a number', 'We can stop here. See you soon.']);
+        }
 
-    const actionMap = new Map();
-    actionMap.set("intent.welcome", welcomeIntent);
-    actionMap.set("intent.createEmployee", createIntent);
-    app.handleRequest(actionMap);
+        function createIntent (app) {
+          console.log("createIntent invoked.");
+          const name = app.getArgument("intent.createEmployee");
+          app.tell('You said ' + name);
+        }
 
-  }else{
-    console.log("No matching action found");
+        const actionMap = new Map();
+        actionMap.set("intent.welcome", welcomeIntent);
+        actionMap.set("intent.createEmployee", createIntent);
+        app.handleRequest(actionMap);
+
+    }else{
+      console.log("No matching action found");
   }
 
 };
