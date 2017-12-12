@@ -5,7 +5,7 @@ exports.createEmployee = function(req, res){
     users.push(req.body.result.parameters['employeename']);
     // const app = require('actions-on-google').my-assistant-783d0;
 
-    const { DialogflowApp } = require('actions-on-google');
+    const  DialogflowApp  = require('actions-on-google');
     const app = new DialogflowApp({request: req, response: res});
 
     // console.log(app);
@@ -14,6 +14,7 @@ exports.createEmployee = function(req, res){
     console.log("hasScreenOutput"+hasScreen);
     if(hasScreen){
       function basicCard () {
+        console.log("basicCard Creation");
         app.ask(app.buildRichResponse()
           // Create a basic card and add it to the rich response
           .addSimpleResponse('New Employee Registration')
@@ -24,7 +25,9 @@ exports.createEmployee = function(req, res){
             .setImageDisplay('CROPPED')
           )
         );
+        console.log("Card Created");
     }
+    console.log("Basic card created successfully");
   }else{
     if(users.length>0){
 
