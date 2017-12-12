@@ -37,8 +37,8 @@ exports.createEmployee = function(req, res){
 
           function createIntent (app) {
             console.log("createIntent invoked.");
-            const name = app.getArgument("intent.createEmployee");
-            app.ask('You said ' + name +". Created successfully. You want to know the details of the created employee?");
+            // const name = app.getArgument("intent.createEmployee");
+            app.ask("You want to know the details of the created employee?");
           }
 
           function detailsIntent (app) {
