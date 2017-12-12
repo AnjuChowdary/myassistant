@@ -13,20 +13,20 @@ exports.createEmployee = function(req, res){
     const hasScreen = app.hasSurfaceCapability(app.SurfaceCapabilities.SCREEN_OUTPUT);
     console.log("hasScreenOutput"+hasScreen);
     if(hasScreen){
-      // function basicCard () {
+
         console.log("basicCard Creation");
         app.ask(app.buildRichResponse()
           // Create a basic card and add it to the rich response
           .addSimpleResponse('Employee '+users[0]+' registered successfully.')
-          .addBasicCard(app.buildBasicCard('Employee Created Successfully.')
-            .setTitle('Employee Registration')
+          .addBasicCard(app.buildBasicCard('VSoft’s development methodologies transform your requirements and objectives into innovative products with features that serve you well now and into the future. Our experienced project management teams strive for on-time delivery of your project, whether it is a single installation at a local institution; or a multi-phase, complex program for a data center or larger global financial institution.')
+            .setTitle('Vsofts Employee Registration')
             .addButton('Read more', 'http://www.vsoftcorp.com/')
             .setImage('https://restcountries.eu/data/ind.svg', 'Image alternate text')
             .setImageDisplay('CROPPED')
           )
         );
         console.log("Card Created");
-    // }
+
     console.log("Basic card created successfully");
   }else{
     if(users.length>0){
