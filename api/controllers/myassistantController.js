@@ -41,8 +41,14 @@ exports.createEmployee = function(req, res){
             app.ask('You said ' + name +". Created successfully. You want to know the details of the created employee?");
           }
 
+          function detailsIntent (app) {
+            console.log("detailsIntent invoked.");
+              app.ask('Sorry!! Details are not available.');
+          }
+
           const actionMap = new Map();
           actionMap.set("intent.createEmployee", createIntent);
+          actionMap.set("intent.details", detailsIntent);
           app.handleRequest(actionMap);
       }else{
           if(users.length>0){
@@ -61,8 +67,7 @@ exports.createEmployee = function(req, res){
 
         function welcomeIntent (app) {
           console.log("Welcome Intent invoked.");
-            app.ask('Welcome to Vsoft! How may I help you?.',
-                      ['Say any name', 'Pick a number', 'We can stop here. See you soon.']);
+            app.ask('Welcome to Vsoft! How may I help you?.');
         }
 
         const actionMap = new Map();
@@ -71,14 +76,14 @@ exports.createEmployee = function(req, res){
 
     }else if(req.body.result['action'] == "intent.details"){
 
-      function detailsIntent (app) {
-        console.log("detailsIntent invoked.");
-          app.ask('Sorry!! Details are not available.');
-      }
-
-      const actionMap = new Map();
-      actionMap.set("intent.welcome", detailsIntent);
-      app.handleRequest(actionMap);
+      // function detailsIntent (app) {
+      //   console.log("detailsIntent invoked.");
+      //     app.ask('Sorry!! Details are not available.');
+      // }
+      //
+      // const actionMap = new Map();
+      // actionMap.set("intent.details", detailsIntent);
+      // app.handleRequest(actionMap);
   }
 
 };
