@@ -97,8 +97,10 @@ exports.createEmployee = function(req, res){
       console.log("name value: "+name);
         if(name == "anju" || name == "Sri Anju"){
           app.ask('Employee id of Anju is 1897.');
-        }else if(name == "Chaitanya"){
+        }else if(name == "Chaitanya" || name == "Chaitanya Krishna"){
           app.ask('Employee id of Chaitanya is 1898.');
+        }else{
+          app.ask('Not found.');
         }
     }
     const actionMap = new Map();
