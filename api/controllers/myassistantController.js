@@ -38,7 +38,7 @@ exports.createEmployee = function(req, res){
           function createIntent (app) {
             console.log("createIntent invoked.");
             const name = app.getArgument("intent.createEmployee");
-            app.tell('You said ' + name+". Created successfully.");
+            app.ask('You said ' + name +". Created successfully. You want to know the details of the created employee?");
           }
 
           const actionMap = new Map();
@@ -69,8 +69,16 @@ exports.createEmployee = function(req, res){
         actionMap.set("intent.welcome", welcomeIntent);
         app.handleRequest(actionMap);
 
-    }else{
-      console.log("No matching action found");
+    }else if(req.body.result['action'] == "intent.details"){
+
+      function detailsIntent (app) {
+        console.log("detailsIntent invoked.");
+          app.ask('Sorry!! Details are not available.']);
+      }
+
+      const actionMap = new Map();
+      actionMap.set("intent.welcome", detailsIntent);
+      app.handleRequest(actionMap);
   }
 
 };
