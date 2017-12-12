@@ -5,20 +5,21 @@ exports.createEmployee = function(req, res){
     // response = "This is a sample response from your webhook!";
     const { DialogflowApp } = require('actions-on-google');
     const app = new DialogflowApp({request: req, response: res});
-
+    const hasScreen = app.hasSurfaceCapability(app.SurfaceCapabilities.SCREEN_OUTPUT);
+    console.log("hasScreenOutput: "+hasScreen);
     console.log(req.body.result['action']);
 
     // console.log(app);
 
 
     if(req.body.result['action'] == "intent.createEmployee") {
-      users.push(req.body.result.parameters['employeename']);
+
+      users.push();
       console.log("users[] length: "+users.length);
       for(var i = 0;i<users.length;i++){
         console.log("User "+i+" "+users[i]);
       }
-      const hasScreen = app.hasSurfaceCapability(app.SurfaceCapabilities.SCREEN_OUTPUT);
-      console.log("hasScreenOutput: "+hasScreen);
+
       if(hasScreen){
 
           console.log("basicCard Creation");
@@ -67,26 +68,56 @@ exports.createEmployee = function(req, res){
           }
       }
     }else if(req.body.result['action'] == "intent.welcome"){
-
-        function welcomeIntent (app) {
-          console.log("Welcome Intent invoked.");
-            app.ask('Welcome to Vsoft! How may I help you?.');
-        }
-
-        const actionMap = new Map();
-        actionMap.set("intent.welcome", welcomeIntent);
-        app.handleRequest(actionMap);
-
+      welcome();
     }else if(req.body.result['action'] == "intent.details"){
+      detailsEmp(req.body.result.parameters['employeename']);
+    }else if(req.body.result['action'] == "intent.branches"){
+      branches();
+    }
 
-      // function detailsIntent (app) {
-      //   console.log("detailsIntent invoked.");
-      //     app.ask('Sorry!! Details are not available.');
-      // }
-      //
-      // const actionMap = new Map();
-      // actionMap.set("intent.details", detailsIntent);
-      // app.handleRequest(actionMap);
+  function branches(){
+    console.log("branches invoked.");
+    function branchIntent (app) {
+      console.log("Welcome Intent invoked.");
+        app.ask('The branches of vsoft are Madhapur main branch and Kukatpally branch');
+    }
+
+    const actionMap = new Map();
+    actionMap.set("intent.details", branchIntent);
+    app.handleRequest(actionMap);
+  }
+
+  function detailsEmp(name){
+    console.log("detailsEmp invoked.");
+    function detailsIntent (app) {
+      console.log("detailsIntent invoked.");
+        if(name == "anju"){
+          app.ask('Employee id of Anju is 1897.');
+        }else if(name == "Chaitanya"){
+          app.ask('Employee id of Chaitanya is 1898.');
+        }
+    }
+    const actionMap = new Map();
+    actionMap.set("intent.details", detailsIntent);
+    app.handleRequest(actionMap);
+  }
+
+  function createEmp(name){
+    console.log("createEmp invoked.");
+
+  }
+
+  function welcome(){
+    console.log("welcome invoked.");
+    function welcomeIntent (app) {
+      console.log("Welcome Intent invoked.");
+        app.ask('Welcome to Vsoft! How may I help you?.');
+    }
+
+    const actionMap = new Map();
+    actionMap.set("intent.welcome", welcomeIntent);
+    app.handleRequest(actionMap);
+
   }
 
 };
