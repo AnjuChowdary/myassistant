@@ -10,7 +10,7 @@ exports.createEmployee = function(req, res){
 
     // console.log(app);
     console.log("users[] length: "+users.length);
-    for(int i = 0;i<=users.length;i++){
+    for(var i = 0;i<=users.length;i++){
       console.log("User "+i+" "+users[i]);
     }
     console.log("Users[0]: "+users[0]);
