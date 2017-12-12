@@ -17,11 +17,11 @@ exports.createEmployee = function(req, res){
         console.log("basicCard Creation");
         app.ask(app.buildRichResponse()
           // Create a basic card and add it to the rich response
-          .addSimpleResponse('New Employee Registration')
+          .addSimpleResponse('Employee '+users[0]+' registered successfully.')
           .addBasicCard(app.buildBasicCard('Employee Created Successfully.')
-            .setTitle('New Employee')
-            .addButton('Read more', 'https://example.google.com/mathandprimes')
-            .setImage('https://example.google.com/42.png', 'Image alternate text')
+            .setTitle('Employee Registration')
+            .addButton('Read more', 'http://www.vsoftcorp.com/')
+            .setImage('https://restcountries.eu/data/ind.svg', 'Image alternate text')
             .setImageDisplay('CROPPED')
           )
         );
