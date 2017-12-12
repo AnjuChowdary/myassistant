@@ -4,13 +4,19 @@
   "description": "This is the basic assistant.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
   },
   "author": "Anju",
   "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  },
   "dependencies": {
     "actions-on-google": "^1.6.1",
     "apiai": "^4.0.3",
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "mongodb": "^3.0.0-rc0",
+    "nodemon": "^1.12.5"
   }
 }
