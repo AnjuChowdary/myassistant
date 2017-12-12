@@ -34,11 +34,11 @@ exports.createEmployee = function(req, res){
             )
           );
 
-          let actionMap = new Map();
-          actionMap.set(app.StandardIntents.TEXT, "createEmployee");
-          actionMap.set(app.StandardIntents.TEXT, "employeeDetails");
-
-        app.handleRequest(actionMap);
+        //   let actionMap = new Map();
+        //   actionMap.set(app.StandardIntents.TEXT, "createEmployee");
+        //   actionMap.set(app.StandardIntents.TEXT, "employeeDetails");
+        //
+        // app.handleRequest(actionMap);
           console.log("Card Created");
 
       console.log("Basic card created successfully");
@@ -52,7 +52,12 @@ exports.createEmployee = function(req, res){
 
       }else{
         res.send(JSON.stringify({ "speech": "This is a sample response from your webhook!",
-                                  "displayText": "This is a sample response from your webhook!"
+                                  "displayText": "This is a sample response from your webhook!",
+                                  "possibleIntents": [
+                                      {
+                                          "intent": "employeeDetails"
+                                      }
+                                    ]
       //"speech" is the spoken version of the response, "displayText" is the visual version
       }));
       }
