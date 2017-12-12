@@ -35,8 +35,8 @@ exports.createEmployee = function(req, res){
           );
 
           let actionMap = new Map();
-          actionMap.set(app.StandardIntents.TEXT, createEmployee);
-          actionMap.set(app.StandardIntents.TEXT, employeeDetails);
+          actionMap.set(app.StandardIntents.TEXT, "createEmployee");
+          actionMap.set(app.StandardIntents.TEXT, "employeeDetails");
 
         app.handleRequest(actionMap);
           console.log("Card Created");
