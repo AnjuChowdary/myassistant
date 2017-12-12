@@ -48,8 +48,11 @@ exports.createEmployee = function(req, res){
 
           const actionMap = new Map();
           actionMap.set("intent.createEmployee", createIntent);
-          actionMap.set("intent.details", detailsIntent);
           app.handleRequest(actionMap);
+
+          const actionMap1 = new Map();
+          actionMap.set("intent.details", detailsIntent);
+          app.handleRequest(actionMap1);
       }else{
           if(users.length>0){
 
