@@ -17,7 +17,7 @@ exports.createEmployee = function(req, res){
       console.log("User "+i+" "+users[i]);
     }
 
-    if(req.body.result['action'] == "createemployee") {
+    if(req.body.result['action'] == "intent.createEmployee") {
       const hasScreen = app.hasSurfaceCapability(app.SurfaceCapabilities.SCREEN_OUTPUT);
       console.log("hasScreenOutput"+hasScreen);
       if(hasScreen){
