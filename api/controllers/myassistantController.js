@@ -24,7 +24,7 @@ exports.createEmployee = function(req, res){
           .addSimpleResponse('Employee '+users[users.length-1]+' registered successfully.')
           .addBasicCard(app.buildBasicCard('VSoft’s development methodologies transform your requirements and objectives into innovative products with features that serve you well now and into the future. Our experienced project management teams strive for on-time delivery of your project, whether it is a single installation at a local institution; or a multi-phase, complex program for a data center or larger global financial institution.')
             .setTitle('Vsofts Employee Registration')
-            .addButton('Read more', 'http://www.vsoftcorp.com/')
+            .addButton('Read more about Vsoft Technologies', 'http://www.vsoftcorp.com/')
             .setImage('https://restcountries.eu/data/ind.svg', 'Image alternate text')
             .setImageDisplay('CROPPED')
           )
