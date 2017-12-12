@@ -9,6 +9,10 @@ exports.createEmployee = function(req, res){
     const app = new DialogflowApp({request: req, response: res});
 
     // console.log(app);
+    console.log("users[] length: "+users.length);
+    for(int i = 0;i<=users.length;i++){
+      console.log("User "+i+" "+users[i]);
+    }
     console.log("Users[0]: "+users[0]);
     const hasScreen = app.hasSurfaceCapability(app.SurfaceCapabilities.SCREEN_OUTPUT);
     console.log("hasScreenOutput"+hasScreen);
