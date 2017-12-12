@@ -4,5 +4,5 @@ module.exports = function(app){
 
   //empList Routes
   app.route('/employee')
-    .post(empList.createEmployee)
+    .post(empList.employee)
 }
