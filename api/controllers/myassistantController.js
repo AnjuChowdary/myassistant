@@ -63,20 +63,21 @@ exports.createEmployee = function(req, res){
           if(users.length>0){
 
               res.send(JSON.stringify({ "speech": "User " + users[0] + " has been added successfully",
-                                        "displayText": "User "+ users[0] + " has been added successfully"
-                                        // "contextOut":[
-                                        //   {
-                                        //     "name":"employee",
-                                        //     "lifespan":10,
-                                        //     "parameters":{
-                                        //       "empId":"1897"
-                                        //     }
-                                        //   }
-                                        // ]
-                                        // "followupEvent":{
-                                        //   "name":"event_empdetails"
-                                        // }
+                                        "displayText": "User "+ users[0] + " has been added successfully",
+                                        "contextOut":[
+                                          {
+                                            "name":"welcome_event",
+                                            "lifespan":10,
+                                            "parameters":{
+                                              "user_name":"Anju"
+                                            }
+                                          }
+                                        ],
+                                        "followupEvent":{
+                                          "name":"welcome_employee"
+                                        }
             }));
+
 
           }else{
             res.send(JSON.stringify({ "speech": "This is a sample response from your webhook!",
@@ -142,23 +143,7 @@ exports.createEmployee = function(req, res){
     console.log("welcome invoked.");
     function welcomeIntent (app) {
       console.log("Welcome Intent invoked.");
-        // app.ask('Welcome to Vsoft! How may I help you?.');
-
-        res.send(JSON.stringify({ "speech": "Welcome to Vsoft! How may I help you?.",
-                                  "displayText": "Welcome to Vsoft! How may I help you?.",
-                                  "contextOut":[
-                                    {
-                                      "name":"welcome_event",
-                                      "lifespan":10,
-                                      "parameters":{
-                                        "user_name":"Anju"
-                                      }
-                                    }
-                                  ],
-                                  "followupEvent":{
-                                    "name":"welcome_employee"
-                                  }
-      }));
+        app.ask('Welcome to Vsoft! How may I help you?.');
     }
 
     const actionMap = new Map();
