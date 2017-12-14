@@ -74,7 +74,7 @@ exports.createEmployee = function(req, res){
                                           }
                                         ],
                                         "followupEvent":{
-                                          "name":"welcome_employee"
+                                          "name":"intent.welcomeEmployee"
                                         }
             }));
 
