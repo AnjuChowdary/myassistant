@@ -72,10 +72,10 @@ exports.createEmployee = function(req, res){
                                               "user_name":"Anju"
                                             }
                                           }
-                                        ],
-                                        "followupEvent":{
-                                          "name":"intent.welcomeEmployee"
-                                        }
+                                        ]
+                                        // "followupEvent":{
+                                        //   "name":"intent.welcomeEmployee"
+                                        // }
             }));
 
 
