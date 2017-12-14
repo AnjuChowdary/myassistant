@@ -117,6 +117,9 @@ exports.createEmployee = function(req, res){
     }else if(req.body.result['action'] == "intent.welcomeEmployee"){
       console.log("welcome employee intent invoked.");
       console.log(req.body.result.contexts[0].name);
+      res.send(JSON.stringify({ "speech": "Welocme! Anju",
+                                "displayText": "Welcome! Anju"
+                              }));
     }
 
   function detailsEmp(name){
