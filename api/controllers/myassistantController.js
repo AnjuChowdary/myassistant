@@ -84,9 +84,17 @@ exports.createEmployee = function(req, res){
         if(users[i] == "Sri Anju" || users[i] == "Anju"){
           console.log("users array has anju element");
           indexOfAnju = i;
-        }
+          users.splice(indexOfAnju,1);
+
+          res.send(JSON.stringify({ "speech": "Employee Anju deleted Successfully",
+                                    "displayText": "Employee Anju deleted Successfully"
+        }));
+      }else{
+        res.send(JSON.stringify({ "speech": "No Employee found to delete",
+                                  "displayText": "No employee found to delete"
+      }));
       }
-      users.splice(indexOfAnju,1);
+      }
     }
 
   // function branches(){
