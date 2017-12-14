@@ -17,6 +17,7 @@ exports.createEmployee = function(req, res){
       users.push(req.body.result.parameters['employeename']);
       console.log("users[] length: "+users.length);
       console.log("Session Id: "+req.body.sessionId);
+      console.log("content: "+req.body.result.contexts);
       for(var i = 0;i<users.length;i++){
         console.log("User "+i+" "+users[i]);
       }
@@ -77,6 +78,15 @@ exports.createEmployee = function(req, res){
                                 "displayText": "The branches of vsoft are Madhapur main branch and Kukatpally branch"
     }));
       // branches();
+    }else if(req.body.result['action'] == "intent.deleteEmployee"){
+      var indexOfAnju = 0;
+      for(var i = 0;i<=users.length;i++){
+        if(users[i] == "Sri Anju" || users[i] == "Anju"){
+          console.log("users array has anju element");
+          indexOfAnju = i;
+        }
+      }
+      users.splice(indexOfAnju,1);
     }
 
   // function branches(){
