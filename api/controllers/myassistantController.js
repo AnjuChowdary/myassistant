@@ -69,16 +69,16 @@ exports.createEmployee = function(req, res){
                                         // "contextOut":[
                                         //   {
                                         //     "name":"surname",
-                                        //     "lifespan":10,
                                         //     "parameters":{
                                         //       "surname":"Palacharla"
-                                        //     }
+                                        //     },
+                                        //     "lifespan":10,
                                         //   }
                                         // ],
                                         "followupEvent":{
                                           "name":"welcome_event",
                                           "data":{
-                                            "user_name":"Anju Chowdary"
+                                            "surname":"Palacharla"
                                           }
                                         }
             }));
