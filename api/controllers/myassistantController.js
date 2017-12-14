@@ -16,6 +16,7 @@ exports.createEmployee = function(req, res){
 
       users.push(req.body.result.parameters['employeename']);
       console.log("users[] length: "+users.length);
+      console.log("Session Id: "+req.body.sessionId);
       for(var i = 0;i<users.length;i++){
         console.log("User "+i+" "+users[i]);
       }
