@@ -85,7 +85,7 @@ exports.createEmployee = function(req, res){
           }
       }
     }else if(req.body.result['action'] == "intent.welcome"){
-      welcome();
+      welcome(req);
     }else if(req.body.result['action'] == "intent.details"){
       detailsEmp(req.body.result.parameters['employeename']);
     }else if(req.body.result['action'] == "intent.branches"){
@@ -110,19 +110,10 @@ exports.createEmployee = function(req, res){
       }));
       }
       }
+    }else if(req.body.result['action'] == "intent.welcomeEmployee"){
+      console.log("welcome employee intent invoked.");
+      console.log(req.body.result.contexts[0].name);
     }
-
-  // function branches(){
-  //   console.log("branches invoked.");
-  //   function branchIntent (app) {
-  //     console.log("Welcome Intent invoked.");
-  //       app.ask('The branches of vsoft are Madhapur main branch and Kukatpally branch');
-  //   }
-  //
-  //   const actionMap = new Map();
-  //   actionMap.set("intent.details", branchIntent);
-  //   app.handleRequest(actionMap);
-  // }
 
   function detailsEmp(name){
     console.log("detailsEmp invoked.");
@@ -147,7 +138,7 @@ exports.createEmployee = function(req, res){
 
   }
 
-  function welcome(){
+  function welcome(req){
     console.log("welcome invoked.");
     function welcomeIntent (app) {
       console.log("Welcome Intent invoked.");
@@ -157,10 +148,10 @@ exports.createEmployee = function(req, res){
                                   "displayText": "Welcome to Vsoft! How may I help you?.",
                                   "contextOut":[
                                     {
-                                      "name":"user",
+                                      "name":"welcome_event",
                                       "lifespan":10,
                                       "parameters":{
-                                        "username":"Anju"
+                                        "user_name":"Anju"
                                       }
                                     }
                                   ],
