@@ -20,9 +20,9 @@ exports.createEmployee = function(req, res){
       console.log("Session Id: "+req.body.sessionId);
       console.log("Context length: "+req.body.result.contexts.length);
       if(req.body.result.contexts.length>0){
-        console.log("Context: "+req.body.result.contexts[0].name);  
+        console.log("Context: "+req.body.result.contexts[0].name);
+        console.log("Context parameters: "+req.body.result.contexts[0].parameters['employeename']);
       }
-      console.log("Context parameters: "+req.body.result.contexts[0].parameters['employeename']);
       for(var i = 0;i<users.length;i++){
         console.log("User "+i+" "+users[i]);
       }
