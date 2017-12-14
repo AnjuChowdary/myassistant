@@ -73,7 +73,7 @@ exports.createEmployee = function(req, res){
                                         //     }
                                         //   }
                                         // ]
-                                        "followupEvent":{
+                                        "event":{
                                           "name":"intent.welcomeEmployee",
                                           "data":{
                                             "user_name":"Anju Chowdary"
