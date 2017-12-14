@@ -62,8 +62,8 @@ exports.createEmployee = function(req, res){
       }else{
           if(users.length>0){
 
-              res.send(JSON.stringify({ "speech": "User " + users[0] + " has been added successfully",
-                                        "displayText": "User "+ users[0] + " has been added successfully",
+              res.send(JSON.stringify({ "speech": "User " + users[users.length-1] + " has been added successfully",
+                                        "displayText": "User "+ users[users.length-1] + " has been added successfully",
                                         // "contextOut":[
                                         //   {
                                         //     "name":"welcome_event",
@@ -73,12 +73,12 @@ exports.createEmployee = function(req, res){
                                         //     }
                                         //   }
                                         // ]
-                                        // "event":{
-                                        //   "name":"intent.welcomeEmployee",
-                                        //   "data":{
-                                        //     "user_name":"Anju Chowdary"
-                                        //   }
-                                        // }
+                                        "followupEvent":{
+                                          "name":"welcome_event",
+                                          "data":{
+                                            "user_name":"Anju Chowdary"
+                                          }
+                                        }
             }));
 
 
