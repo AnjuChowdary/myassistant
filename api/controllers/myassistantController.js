@@ -17,8 +17,9 @@ exports.createEmployee = function(req, res){
       users.push(req.body.result.parameters['employeename']);
       console.log("users[] length: "+users.length);
       console.log("Session Id: "+req.body.sessionId);
-      console.log("Context: "+req.body.result.contexts.name);
-      console.log("Context parameters: "+req.body.result.contexts.parameters['employeename']);
+      console.log("Context length: "+req.body.result.contexts.length);
+      console.log("Context: "+req.body.result.contexts(0).name);
+      console.log("Context parameters: "+req.body.result.contexts(0).parameters['employeename']);
       for(var i = 0;i<users.length;i++){
         console.log("User "+i+" "+users[i]);
       }
