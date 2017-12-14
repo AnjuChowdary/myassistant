@@ -151,7 +151,23 @@ exports.createEmployee = function(req, res){
     console.log("welcome invoked.");
     function welcomeIntent (app) {
       console.log("Welcome Intent invoked.");
-        app.ask('Welcome to Vsoft! How may I help you?.');
+        // app.ask('Welcome to Vsoft! How may I help you?.');
+
+        res.send(JSON.stringify({ "speech": "Welcome to Vsoft! How may I help you?.",
+                                  "displayText": "Welcome to Vsoft! How may I help you?.",
+                                  "contextOut":[
+                                    {
+                                      "name":"user",
+                                      "lifespan":10,
+                                      "parameters":{
+                                        "username":"Anju"
+                                      }
+                                    }
+                                  ],
+                                  "followupEvent":{
+                                    "name":"welcome_employee"
+                                  }
+      }));
     }
 
     const actionMap = new Map();
