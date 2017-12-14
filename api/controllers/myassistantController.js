@@ -68,9 +68,9 @@ exports.createEmployee = function(req, res){
                                         "displayText": "User "+ users[users.length-1] + " has been added successfully",
                                         "contextOut":[
                                           {
-                                            "name":"surname",
+                                            "name":"userId",
                                             "parameters":{
-                                              "ofuser":users[0]
+                                              "ofuser":"123456"
                                             },
                                             "lifespan":10,
                                           }
@@ -78,7 +78,8 @@ exports.createEmployee = function(req, res){
                                         "followupEvent":{
                                           "name":"welcome_event",
                                           "data":{
-                                            "user":users[0]
+                                            "user":users[0],
+                                            "surname":"Palacharla"
                                           }
                                         }
             }));
