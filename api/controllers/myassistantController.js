@@ -63,16 +63,16 @@ exports.createEmployee = function(req, res){
           if(users.length>0){
 
               res.send(JSON.stringify({ "speech": "User " + users[0] + " has been added successfully",
-                                        "displayText": "User "+ users[0] + " has been added successfully",
-                                        "contextOut":[
-                                          {
-                                            "name":"employee",
-                                            "lifespan":10,
-                                            "parameters":{
-                                              "empId":"1897"
-                                            }
-                                          }
-                                        ]
+                                        "displayText": "User "+ users[0] + " has been added successfully"
+                                        // "contextOut":[
+                                        //   {
+                                        //     "name":"employee",
+                                        //     "lifespan":10,
+                                        //     "parameters":{
+                                        //       "empId":"1897"
+                                        //     }
+                                        //   }
+                                        // ]
                                         // "followupEvent":{
                                         //   "name":"event_empdetails"
                                         // }
