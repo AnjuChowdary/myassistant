@@ -73,12 +73,12 @@ exports.createEmployee = function(req, res){
                                         //     }
                                         //   }
                                         // ]
-                                        "event":{
-                                          "name":"intent.welcomeEmployee",
-                                          "data":{
-                                            "user_name":"Anju Chowdary"
-                                          }
-                                        }
+                                        // "event":{
+                                        //   "name":"intent.welcomeEmployee",
+                                        //   "data":{
+                                        //     "user_name":"Anju Chowdary"
+                                        //   }
+                                        // }
             }));
 
 
