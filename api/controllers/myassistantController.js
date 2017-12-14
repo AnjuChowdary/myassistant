@@ -11,8 +11,8 @@ exports.createEmployee = function(req, res){
 
     // console.log(app);
 
-    console.log("Request body: "+req.body);
-    
+    console.log("Request body: "+req);
+
     if(req.body.result['action'] == "intent.createEmployee") {
 
       users.push(req.body.result.parameters['employeename']);
