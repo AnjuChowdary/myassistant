@@ -64,18 +64,21 @@ exports.createEmployee = function(req, res){
 
               res.send(JSON.stringify({ "speech": "User " + users[0] + " has been added successfully",
                                         "displayText": "User "+ users[0] + " has been added successfully",
-                                        "contextOut":[
-                                          {
-                                            "name":"welcome_event",
-                                            "lifespan":10,
-                                            "parameters":{
-                                              "user_name":"Anju"
-                                            }
+                                        // "contextOut":[
+                                        //   {
+                                        //     "name":"welcome_event",
+                                        //     "lifespan":10,
+                                        //     "parameters":{
+                                        //       "user_name":"Anju"
+                                        //     }
+                                        //   }
+                                        // ]
+                                        "followupEvent":{
+                                          "name":"intent.welcomeEmployee",
+                                          "data":{
+                                            "user_name":"Anju Chowdary"
                                           }
-                                        ]
-                                        // "followupEvent":{
-                                        //   "name":"intent.welcomeEmployee"
-                                        // }
+                                        }
             }));
 
 
