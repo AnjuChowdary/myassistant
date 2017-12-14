@@ -72,7 +72,10 @@ exports.createEmployee = function(req, res){
                                               "empId":"1897"
                                             }
                                           }
-                                        ]
+                                        ],
+                                        "followupEvent":{
+                                          "name":"event_empdetails"
+                                        }
             }));
 
           }else{
