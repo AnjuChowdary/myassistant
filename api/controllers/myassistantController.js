@@ -78,7 +78,7 @@ exports.createEmployee = function(req, res){
                                         "followupEvent":{
                                           "name":"welcome_event",
                                           "data":{
-                                            "surname":"Palacharla"
+                                            "surname":users[0]
                                           }
                                         }
             }));
