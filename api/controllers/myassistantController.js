@@ -17,7 +17,8 @@ exports.createEmployee = function(req, res){
       users.push(req.body.result.parameters['employeename']);
       console.log("users[] length: "+users.length);
       console.log("Session Id: "+req.body.sessionId);
-      console.log("content: "+req.body.result.contexts);
+      console.log("Context: "+req.body.result.contexts.name);
+      console.log("Context parameters: "+req.body.result.contexts.parameters['employeename']);
       for(var i = 0;i<users.length;i++){
         console.log("User "+i+" "+users[i]);
       }
@@ -60,7 +61,16 @@ exports.createEmployee = function(req, res){
           if(users.length>0){
 
               res.send(JSON.stringify({ "speech": "User " + users[0] + " has been added successfully",
-                                        "displayText": "User "+ users[0] + " has been added successfully"
+                                        "displayText": "User "+ users[0] + " has been added successfully",
+                                        "contextOut":[
+                                          {
+                                            "name":"employee",
+                                            "lifespan":10,
+                                            "parameters":{
+                                              "empId":"1897"
+                                            }
+                                          }
+                                        ]
             }));
 
           }else{
