@@ -42,24 +42,6 @@ exports.createEmployee = function(req, res){
           console.log("Card Created");
           console.log("Basic card created successfully");
 
-          function createIntent (app) {
-            console.log("createIntent invoked.");
-            // const name = app.getArgument("intent.createEmployee");
-            app.ask("You want to know the details of the created employee?");
-          }
-
-          function detailsIntent (app) {
-            console.log("detailsIntent invoked.");
-              app.ask('Sorry!! Details are not available.');
-          }
-
-          const actionMap = new Map();
-          actionMap.set("intent.createEmployee", createIntent);
-          app.handleRequest(actionMap);
-
-          const actionMap1 = new Map();
-          actionMap.set("intent.details", detailsIntent);
-          app.handleRequest(actionMap1);
 
           console.log("Vsoft Assistant Response");
           console.log(res);
