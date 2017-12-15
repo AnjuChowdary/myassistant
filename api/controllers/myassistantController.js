@@ -8,10 +8,9 @@ exports.createEmployee = function(req, res){
     const hasScreen = app.hasSurfaceCapability(app.SurfaceCapabilities.SCREEN_OUTPUT);
     console.log("hasScreenOutput: "+hasScreen);
     console.log(req.body.result['action']);
-    console.log(app)
     // console.log(app);
 
-    console.log("Request body: "+req);
+    console.log("Request body: "+req.body);
 
     if(req.body.result['action'] == "intent.createEmployee") {
 
