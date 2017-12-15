@@ -160,5 +160,5 @@ exports.createEmployee = function(req, res){
 
   }
   console.log("Vsoft Assistant Response");
-  console.log(JSON.stringify(res.body));
+  console.log(JSON.stringify(res));
 };
