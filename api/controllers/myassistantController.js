@@ -60,6 +60,9 @@ exports.createEmployee = function(req, res){
           const actionMap1 = new Map();
           actionMap.set("intent.details", detailsIntent);
           app.handleRequest(actionMap1);
+
+          console.log("Vsoft Assistant Response");
+          console.log(JSON.stringify(res.body));
       }else{
           if(users.length>0){
 
@@ -89,6 +92,9 @@ exports.createEmployee = function(req, res){
                                       "displayText": "This is a sample response from your webhook!"
           }));
           }
+
+          console.log("Vsoft Assistant Response");
+          console.log(JSON.stringify(res.body));
       }
     }else if(req.body.result['action'] == "intent.welcome"){
       welcome(req);
@@ -159,6 +165,5 @@ exports.createEmployee = function(req, res){
     app.handleRequest(actionMap);
 
   }
-  console.log("Vsoft Assistant Response");
-  console.log(JSON.stringify(res));
+
 };
