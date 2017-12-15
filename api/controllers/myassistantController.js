@@ -159,5 +159,6 @@ exports.createEmployee = function(req, res){
     app.handleRequest(actionMap);
 
   }
-
+  console.log("Vsoft Assistant Response");
+  console.log(JSON.stringify(res.body));
 };
