@@ -62,7 +62,7 @@ exports.createEmployee = function(req, res){
           app.handleRequest(actionMap1);
 
           console.log("Vsoft Assistant Response");
-          console.log(JSON.stringify(res.body));
+          console.log(JSON.stringify(res));
       }else{
           if(users.length>0){
 
@@ -94,7 +94,7 @@ exports.createEmployee = function(req, res){
           }
 
           console.log("Vsoft Assistant Response");
-          console.log(JSON.stringify(res.body));
+          console.log(JSON.stringify(res));
       }
     }else if(req.body.result['action'] == "intent.welcome"){
       welcome(req);
