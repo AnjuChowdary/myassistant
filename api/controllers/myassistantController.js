@@ -10,7 +10,7 @@ exports.createEmployee = function(req, res){
     console.log(req.body.result['action']);
     // console.log(app);
 
-    console.log("Request body: "+req.body);
+    console.log("Request body: "+JSON.stringify(req.body));
 
     if(req.body.result['action'] == "intent.createEmployee") {
 
